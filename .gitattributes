@@ -1,0 +1,13 @@
+# Normalise line endings in the repository.
+* text=auto
+
+# Deterministic data fixtures and generated example outputs keep LF everywhere,
+# so regenerated files compare byte-for-byte on Windows and Linux.
+data/demo/*.csv text eol=lf
+data/demo/*.jsonl text eol=lf
+docs/example_output/*.json text eol=lf
+docs/example_output/*.md text eol=lf
+
+# Binary files
+*.png binary
+*.parquet binary

@@ -1,0 +1,316 @@
+schema_version: 1
+
+# Machine-readable data-source registry used by the publication-safety guard
+# (scripts/check_publication_safety.py). The human-readable companion is
+# DATA_SOURCES.md.
+#
+# redistribution_status values are CONSERVATIVE PROJECT CLASSIFICATIONS for
+# engineering purposes. They are not legal conclusions and not legal advice.
+#
+#   permitted_with_attribution  The publisher's published reuse terms were
+#                               reviewed and allow reproduction with source
+#                               attribution. Values may appear in reviewed
+#                               public fixtures.
+#   restricted                  Commercial/proprietary publisher or
+#                               distributor. Treated as non-redistributable:
+#                               only metadata (names, identifiers, URLs,
+#                               schedule facts) may be published.
+#   unresolved                  Reuse terms not yet reviewed or unclear.
+#                               Treated exactly like "restricted".
+#   project_generated           Synthetic data created by this repository.
+
+policy_note: >-
+  The code licence of this repository does not license third-party data.
+  Publicly accessible URLs do not by themselves grant redistribution rights.
+
+sources:
+  # --------------------------------------------------------------------------
+  # Official sources reviewed as reusable with attribution
+  # --------------------------------------------------------------------------
+  - source_key: bls
+    publisher: U.S. Bureau of Labor Statistics
+    category: official_statistics
+    url_patterns: [bls.gov]
+    event_keys:
+      - us_cpi
+      - us_employment_situation
+      - us_ppi
+      - us_jolts_job_openings
+      - us_employment_cost_index
+    redistribution_status: permitted_with_attribution
+    terms_url: https://www.bls.gov/opub/copyright-information.htm
+    attribution: "Source: U.S. Bureau of Labor Statistics"
+    modification_notice_required: false
+    repository_treatment: >-
+      Reviewed records may be published in data/demo/official_releases_allowlist.jsonl.
+
+  - source_key: bea
+    publisher: U.S. Bureau of Economic Analysis
+    category: official_statistics
+    url_patterns: [bea.gov]
+    event_keys:
+      - us_advance_gdp
+      - us_personal_income_outlays
+    redistribution_status: permitted_with_attribution
+    terms_url: https://www.bea.gov/help/faq/145
+    attribution: "Source: U.S. Bureau of Economic Analysis"
+    modification_notice_required: false
+    repository_treatment: >-
+      Eligible for the public allowlist after record-level review; none published yet.
+
+  - source_key: census
+    publisher: U.S. Census Bureau
+    category: official_statistics
+    url_patterns: [census.gov]
+    event_keys:
+      - us_advance_retail_sales
+      - us_durable_goods_orders
+      - us_factory_orders
+    redistribution_status: permitted_with_attribution
+    terms_url: https://www.census.gov/about/policies/citation.html
+    attribution: "Source: U.S. Census Bureau"
+    modification_notice_required: false
+    repository_treatment: >-
+      Eligible for the public allowlist after record-level review; none published yet.
+
+  - source_key: federal_reserve_board
+    publisher: Board of Governors of the Federal Reserve System
+    category: central_bank
+    url_patterns: [federalreserve.gov]
+    event_keys:
+      - us_fomc_decision_statement
+      - us_fed_chair_post_fomc_press_conference
+      - us_fomc_projections_dot_plot
+      - us_fomc_minutes
+      - us_fed_chair_major_external_speech
+      - us_major_fed_official_statement
+    redistribution_status: permitted_with_attribution
+    terms_url: https://www.federalreserve.gov/disclaimer.htm
+    attribution: "Source: Board of Governors of the Federal Reserve System"
+    modification_notice_required: false
+    repository_treatment: >-
+      Eligible for the public allowlist after record-level review; none published yet.
+
+  - source_key: eurostat
+    publisher: Eurostat (European Commission)
+    category: official_statistics
+    url_patterns: [ec.europa.eu/eurostat]
+    event_keys:
+      - eur_euro_area_flash_hicp
+      - eur_euro_area_preliminary_gdp
+      - eur_euro_area_unemployment
+      - eur_euro_area_employment_flash
+      - eur_euro_area_wages_labour_costs
+    redistribution_status: permitted_with_attribution
+    terms_url: https://ec.europa.eu/eurostat/help/copyright-notice
+    attribution: "Source: Eurostat"
+    modification_notice_required: true
+    repository_treatment: >-
+      Eligible for the public allowlist after record-level review; none published yet.
+
+  - source_key: ecb
+    publisher: European Central Bank
+    category: central_bank
+    url_patterns: [ecb.europa.eu]
+    event_keys:
+      - eur_ecb_decision_statement
+      - eur_ecb_president_press_conference
+      - eur_ecb_staff_projections
+      - eur_ecb_meeting_accounts
+      - eur_ecb_president_major_external_speech
+      - eur_major_ecb_official_statement
+      - eur_euro_area_wages_labour_costs
+    redistribution_status: permitted_with_attribution
+    terms_url: https://www.ecb.europa.eu/home/disclaimer/html/index.en.html
+    attribution: "Source: European Central Bank"
+    modification_notice_required: true
+    repository_treatment: >-
+      Eligible for the public allowlist after record-level review; none published yet.
+
+  - source_key: destatis
+    publisher: Statistisches Bundesamt (Destatis)
+    category: official_statistics
+    url_patterns: [destatis.de]
+    event_keys:
+      - eur_germany_preliminary_cpi_hicp
+      - eur_germany_preliminary_gdp
+    redistribution_status: permitted_with_attribution
+    terms_url: https://www.destatis.de/EN/Service/Legal-Notice/CopyrightGeneral.html
+    attribution: "Source: Statistisches Bundesamt (Destatis)"
+    modification_notice_required: true
+    repository_treatment: >-
+      Eligible for the public allowlist after record-level review; none published yet.
+
+  # --------------------------------------------------------------------------
+  # Official sources whose reuse terms have not been reviewed
+  # --------------------------------------------------------------------------
+  - source_key: german_state_statistical_offices
+    publisher: German state statistical offices (Statistische Landesämter)
+    category: official_statistics
+    url_patterns:
+      - it.nrw
+      - statistik.bayern.de
+      - statistik-bw.de
+      - statistik.hessen.de
+      - statistik.sachsen.de
+      - statistik-berlin-brandenburg.de
+    event_keys:
+      - eur_germany_state_cpi
+    redistribution_status: unresolved
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only. Values, summaries and notes are excluded until each
+      office's reuse terms are reviewed.
+
+  - source_key: us_department_of_labor_eta
+    publisher: U.S. Department of Labor, Employment and Training Administration
+    category: official_statistics
+    url_patterns: [dol.gov]
+    event_keys:
+      - us_initial_jobless_claims
+    redistribution_status: unresolved
+    terms_url: null
+    attribution: null
+    modification_notice_required: false
+    repository_treatment: >-
+      Not yet reviewed and no records collected. Metadata only.
+
+  # --------------------------------------------------------------------------
+  # Proprietary / commercial publishers and distributors
+  # --------------------------------------------------------------------------
+  - source_key: sp_global_pmi
+    publisher: S&P Global Market Intelligence (including HCOB-sponsored PMIs)
+    category: private_survey
+    url_patterns: [spglobal.com]
+    event_keys:
+      - us_sp_global_services_pmi_final
+      - eur_germany_flash_pmi
+      - eur_eurozone_flash_pmi
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only (event definitions, schedule dates, URLs).
+
+  - source_key: ism
+    publisher: Institute for Supply Management
+    category: private_survey
+    url_patterns: [ismworld.org]
+    event_keys:
+      - us_ism_services_pmi
+      - us_ism_manufacturing_pmi
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only (event definitions, schedule dates, URLs).
+
+  - source_key: zew
+    publisher: ZEW – Leibniz Centre for European Economic Research
+    category: private_survey
+    url_patterns: [zew.de]
+    event_keys:
+      - eur_zew_sentiment
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only (event definitions, schedule dates, URLs).
+
+  - source_key: ifo
+    publisher: ifo Institute
+    category: private_survey
+    url_patterns: [ifo.de]
+    event_keys:
+      - eur_germany_ifo_business_climate
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only (event definitions, schedule dates, URLs).
+
+  - source_key: university_of_michigan
+    publisher: University of Michigan Surveys of Consumers
+    category: private_survey
+    url_patterns: [umich.edu]
+    event_keys:
+      - us_michigan_preliminary
+      - us_michigan_final
+    redistribution_status: unresolved
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only until the applicable terms are conclusively reviewed.
+
+  - source_key: adp
+    publisher: ADP Research
+    category: private_survey
+    url_patterns: [adp.com]
+    event_keys:
+      - us_adp_employment
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Metadata only (event definitions, schedule dates, URLs).
+
+  - source_key: pr_newswire
+    publisher: PR Newswire (press-release distributor)
+    category: press_distributor
+    url_patterns: [prnewswire.com]
+    event_keys: []
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      URLs may appear as provenance references; distributed text and values are excluded.
+
+  - source_key: secondary_media
+    publisher: Commercial news media (e.g. Reuters, Investing.com)
+    category: secondary_media
+    url_patterns: [reuters.com, investing.com]
+    event_keys: []
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      URLs may appear as corroboration references in audits; content is excluded.
+
+  - source_key: mt5_broker_price_data
+    publisher: MetaTrader 5 broker price history (exported locally by the author)
+    category: market_data
+    url_patterns: []
+    event_keys: []
+    redistribution_status: restricted
+    terms_url: null
+    attribution: null
+    modification_notice_required: true
+    repository_treatment: >-
+      Used for local, private analysis only. Candle files and reports derived
+      from them stay in git-ignored folders.
+
+  # --------------------------------------------------------------------------
+  # Project-generated synthetic data
+  # --------------------------------------------------------------------------
+  - source_key: project_synthetic
+    publisher: This repository (synthetic demonstration data)
+    category: project_synthetic
+    url_patterns: [example.com, example.org, example.net]
+    event_keys: []
+    redistribution_status: project_generated
+    terms_url: null
+    attribution: null
+    modification_notice_required: false
+    repository_treatment: >-
+      Deterministically generated by scripts/generate_synthetic_demo_data.py and
+      covered by the repository licence. Never represents real observations.

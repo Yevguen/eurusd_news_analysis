@@ -1,0 +1,79 @@
+# Python virtual environment
+.venv/
+venv/
+
+# Python cache files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Testing and coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Type checking and linting
+.mypy_cache/
+.ruff_cache/
+
+# VS Code local settings
+.vscode/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# API keys and credentials
+*.key
+*.pem
+credentials.json
+secrets.yaml
+
+# ---------------------------------------------------------------------------
+# DATA POLICY: default-deny everything under data/.
+# Only the documented public demo data and placeholder files are publishable.
+# Private research catalogues (e.g. data/historical_releases/), raw exports,
+# processed outputs and reports stay local. See DATA_SOURCES.md.
+# ---------------------------------------------------------------------------
+data/*
+!data/README.md
+!data/demo/
+!data/raw/
+!data/processed/
+!data/reports/
+
+data/raw/*
+!data/raw/.gitkeep
+data/processed/*
+!data/processed/.gitkeep
+data/reports/*
+!data/reports/.gitkeep
+
+# Data exports anywhere else in the repository (MT5 candle files, catalogue
+# dumps, Parquet tables, spreadsheets). Public demo fixtures are re-included.
+*.csv
+*.jsonl
+*.parquet
+*.feather
+*.xlsx
+*.xls
+*.hcc
+*.hst
+!data/demo/*.csv
+!data/demo/*.jsonl
+
+# Local archives and backups must never be committed
+*.zip
+*.7z
+*.rar
+*.bak
+
+# Generated reports and logs
+*.log
+*.tmp
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini

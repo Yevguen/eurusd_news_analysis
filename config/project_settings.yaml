@@ -1,0 +1,30 @@
+project:
+  name: eurusd_news_analysis
+  currency_pair: EURUSD
+  timeframe: H1
+
+analysis_period:
+  event_start_date: "2024-01-01"
+  market_data_start_date: "2023-12-01"
+
+supported_currencies:
+  - EUR
+  - USD
+
+supported_impact_levels:
+  - high
+  - very_high
+
+time_settings:
+  primary_timestamp_system: mt5_server_time
+  store_official_release_time: true
+  store_utc_release_time: true
+  require_timezone_aware_datetimes: true
+
+data_policy:
+  include_scheduled_releases: true
+  include_central_bank_decisions: true
+  include_central_bank_speeches: true
+  include_official_statements: true
+  include_medium_impact_events: false
+  include_low_impact_events: false

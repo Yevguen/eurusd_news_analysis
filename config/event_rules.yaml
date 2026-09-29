@@ -1,0 +1,646 @@
+schema_version: 1
+
+catalogue:
+  name: eurusd_high_impact_event_rules
+  currency_pair: EURUSD
+  purpose: >
+    Rule catalogue for high- and very-high-impact events
+    relevant to EUR/USD analysis.
+
+impact_policy:
+  very_high: >
+    Core event with consistently strong potential to affect EUR/USD.
+  high: >
+    Core event with material but less consistently dominant EUR/USD impact.
+  conditional_high: >
+    Event treated as high impact only when its activation condition is met.
+
+deduplication_policy:
+  one_record_per_publication: true
+  group_components_released_together: true
+  separate_records_for_different_release_times: true
+
+event_rules:
+  # ==========================================================================
+  # VERY HIGH IMPACT — USD
+  # ==========================================================================
+
+  - event_key: us_fomc_decision_statement
+    event_name: "FOMC monetary-policy decision and statement"
+    currency: USD
+    country_or_region: "United States"
+    event_type: central_bank_decision
+    impact_level: very_high
+    activation: core
+    event_family: fomc_meeting
+    release_stage: decision_statement
+    components:
+      - federal_funds_target_range
+      - policy_statement
+
+  - event_key: us_fed_chair_post_fomc_press_conference
+    event_name: "Fed Chair post-FOMC press conference"
+    currency: USD
+    country_or_region: "United States"
+    event_type: central_bank_speech
+    impact_level: very_high
+    activation: core
+    event_family: fomc_meeting
+    release_stage: press_conference
+    components:
+      - prepared_remarks
+      - questions_and_answers
+
+  - event_key: us_fomc_projections_dot_plot
+    event_name: "FOMC Summary of Economic Projections and dot plot"
+    currency: USD
+    country_or_region: "United States"
+    event_type: official_statement
+    impact_level: very_high
+    activation: core
+    event_family: fomc_meeting
+    release_stage: projections
+    published_condition: >
+      Only at FOMC meetings when projections are published.
+    components:
+      - growth_projections
+      - inflation_projections
+      - unemployment_projections
+      - federal_funds_rate_projections
+      - dot_plot
+
+  - event_key: us_cpi
+    event_name: "US Consumer Price Index release"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: very_high
+    activation: core
+    event_family: us_consumer_inflation
+    release_stage: monthly_release
+    components:
+      - headline_cpi_mom
+      - headline_cpi_yoy
+      - core_cpi_mom
+      - core_cpi_yoy
+
+  - event_key: us_employment_situation
+    event_name: "US Employment Situation"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: very_high
+    activation: core
+    event_family: us_labour_market
+    release_stage: monthly_release
+    components:
+      - nonfarm_payrolls
+      - unemployment_rate
+      - average_hourly_earnings_mom
+
+  - event_key: us_personal_income_outlays
+    event_name: "US Personal Income and Outlays"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: very_high
+    activation: core
+    event_family: us_income_spending_inflation
+    release_stage: monthly_release
+    components:
+      - core_pce
+      - headline_pce
+      - personal_income
+      - personal_spending
+
+  # ==========================================================================
+  # VERY HIGH IMPACT — EUR
+  # ==========================================================================
+
+  - event_key: eur_ecb_decision_statement
+    event_name: "ECB monetary-policy decision and statement"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: central_bank_decision
+    impact_level: very_high
+    activation: core
+    event_family: ecb_meeting
+    release_stage: decision_statement
+    components:
+      - policy_rates
+      - policy_statement
+
+  - event_key: eur_ecb_president_press_conference
+    event_name: "ECB President post-decision press conference"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: central_bank_speech
+    impact_level: very_high
+    activation: core
+    event_family: ecb_meeting
+    release_stage: press_conference
+    components:
+      - introductory_statement
+      - questions_and_answers
+
+  - event_key: eur_ecb_staff_projections
+    event_name: "ECB/Eurosystem staff macroeconomic projections"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: official_statement
+    impact_level: very_high
+    activation: core
+    event_family: ecb_meeting
+    release_stage: projections
+    published_condition: >
+      Only when ECB or Eurosystem staff projections are published.
+    components:
+      - growth_projections
+      - inflation_projections
+      - wage_and_labour_market_projections
+
+  - event_key: eur_euro_area_flash_hicp
+    event_name: "Euro-area flash HICP"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: economic_release
+    impact_level: very_high
+    activation: core
+    event_family: euro_area_consumer_inflation
+    release_stage: flash
+    components:
+      - headline_hicp
+      - core_hicp
+
+  # ==========================================================================
+  # HIGH IMPACT — USD
+  # ==========================================================================
+
+  - event_key: us_advance_gdp
+    event_name: "US Advance GDP release"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_gdp
+    release_stage: advance
+    components:
+      - real_gdp
+      - gdp_price_measures
+
+  - event_key: us_advance_retail_sales
+    event_name: "US Advance Retail Sales"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_consumption
+    release_stage: advance
+    components:
+      - headline_retail_sales
+      - retail_sales_control_group
+
+  - event_key: us_ism_services_pmi
+    event_name: "US ISM Services PMI"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_business_surveys
+    release_stage: monthly_release
+    components:
+      - headline_index
+      - business_activity
+      - new_orders
+      - employment
+      - prices_paid
+
+  - event_key: us_ism_manufacturing_pmi
+    event_name: "US ISM Manufacturing PMI"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_business_surveys
+    release_stage: monthly_release
+    components:
+      - headline_index
+      - new_orders
+      - production
+      - employment
+      - prices_paid
+
+  - event_key: us_ppi
+    event_name: "US Producer Price Index release"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_producer_inflation
+    release_stage: monthly_release
+    components:
+      - headline_ppi_mom
+      - headline_ppi_yoy
+      - core_ppi_mom
+      - core_ppi_yoy
+
+  - event_key: us_adp_employment
+    event_name: "US ADP National Employment Report"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_labour_market
+    release_stage: private_employment_estimate
+    components:
+      - private_payroll_change
+
+  - event_key: us_jolts_job_openings
+    event_name: "US JOLTS Job Openings"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_labour_market
+    release_stage: monthly_release
+    components:
+      - job_openings
+      - hires
+      - quits
+
+  - event_key: us_michigan_preliminary
+    event_name: "University of Michigan Consumer Sentiment, preliminary"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_consumer_sentiment
+    release_stage: preliminary
+    components:
+      - headline_sentiment
+      - one_year_inflation_expectations
+      - long_term_inflation_expectations
+
+  - event_key: us_fomc_minutes
+    event_name: "FOMC Meeting Minutes"
+    currency: USD
+    country_or_region: "United States"
+    event_type: official_statement
+    impact_level: high
+    activation: core
+    event_family: fomc_meeting
+    release_stage: minutes
+    components:
+      - policy_discussion
+      - risk_assessment
+      - participant_views
+
+  - event_key: us_employment_cost_index
+    event_name: "US Employment Cost Index"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: us_labour_costs
+    release_stage: quarterly_release
+    components:
+      - total_compensation
+      - wages_and_salaries
+      - benefit_costs
+
+  # ==========================================================================
+  # HIGH IMPACT — EUR
+  # ==========================================================================
+
+  - event_key: eur_germany_state_cpi
+    event_name: "German state CPI releases, treated collectively"
+    currency: EUR
+    country_or_region: "Germany"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: german_inflation
+    release_stage: state_updates
+    aggregation_rule: >
+      Store every state statistical-office publication as a separate
+      HistoricalRelease using its genuine publication time and source.
+      Group same-day state releases under one release_group_id for
+      collective EUR/USD analysis.
+    components:
+      - state_headline_cpi_mom
+      - state_headline_cpi_yoy
+
+  - event_key: eur_germany_preliminary_cpi_hicp
+    event_name: "Preliminary German national CPI/HICP"
+    currency: EUR
+    country_or_region: "Germany"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: german_inflation
+    release_stage: national_preliminary
+    anticipation_note: >
+      The national release may be partly anticipated after state CPI figures.
+    components:
+      - national_headline_cpi
+      - national_hicp
+
+  - event_key: eur_germany_flash_pmi
+    event_name: "S&P Global Flash Germany PMI"
+    currency: EUR
+    country_or_region: "Germany"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: european_flash_pmi
+    release_stage: germany_flash
+    components:
+      - manufacturing_pmi
+      - services_pmi
+      - composite_pmi
+
+  - event_key: eur_eurozone_flash_pmi
+    event_name: "S&P Global Flash Eurozone PMI"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: european_flash_pmi
+    release_stage: eurozone_flash
+    components:
+      - manufacturing_pmi
+      - services_pmi
+      - composite_pmi
+
+  - event_key: eur_germany_preliminary_gdp
+    event_name: "Preliminary German quarterly GDP"
+    currency: EUR
+    country_or_region: "Germany"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: german_gdp
+    release_stage: preliminary
+    components:
+      - real_gdp_quarter_on_quarter
+      - real_gdp_year_on_year
+
+  - event_key: eur_euro_area_preliminary_gdp
+    event_name: "Preliminary euro-area quarterly GDP"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: euro_area_gdp
+    release_stage: preliminary
+    components:
+      - real_gdp_quarter_on_quarter
+      - real_gdp_year_on_year
+
+  - event_key: eur_germany_ifo_business_climate
+    event_name: "German Ifo Business Climate Index"
+    currency: EUR
+    country_or_region: "Germany"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: german_business_surveys
+    release_stage: monthly_release
+    components:
+      - business_climate
+      - current_assessment
+      - expectations
+
+  - event_key: eur_zew_sentiment
+    event_name: "ZEW Economic Sentiment, Germany and euro area"
+    currency: EUR
+    country_or_region: "Germany and Euro area"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: european_sentiment
+    release_stage: monthly_release
+    components:
+      - germany_economic_sentiment
+      - germany_current_situation
+      - euro_area_economic_sentiment
+
+  - event_key: eur_ecb_meeting_accounts
+    event_name: "ECB Monetary Policy Meeting Accounts"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: official_statement
+    impact_level: high
+    activation: core
+    event_family: ecb_meeting
+    release_stage: meeting_accounts
+    components:
+      - policy_discussion
+      - economic_assessment
+      - risk_assessment
+
+  - event_key: eur_euro_area_unemployment
+    event_name: "Euro-area unemployment rate"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: euro_area_labour_market
+    release_stage: monthly_release
+    components:
+      - unemployment_rate
+
+  - event_key: eur_euro_area_employment_flash
+    event_name: "Euro-area employment flash estimate"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: economic_release
+    impact_level: high
+    activation: core
+    event_family: euro_area_labour_market
+    release_stage: quarterly_flash
+    components:
+      - employment_change_quarter_on_quarter
+      - employment_change_year_on_year
+
+  # ==========================================================================
+  # CONDITIONAL HIGH IMPACT — USD
+  #
+  # These use impact_level: high because the current ImpactLevel model supports
+  # only "high" and "very_high". The activation field records their conditional
+  # status.
+  # ==========================================================================
+
+  - event_key: us_fed_chair_major_external_speech
+    event_name: >
+      Fed Chair testimony or major policy speech outside an FOMC meeting
+    currency: USD
+    country_or_region: "United States"
+    event_type: central_bank_speech
+    impact_level: high
+    activation: conditional
+    event_family: federal_reserve_communications
+    release_stage: external_speech
+    activation_condition: >
+      Activate when the communication can materially change near-term
+      policy-rate, balance-sheet, or forward-guidance expectations.
+
+  - event_key: us_initial_jobless_claims
+    event_name: "US Initial Jobless Claims"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: conditional
+    event_family: us_labour_market
+    release_stage: weekly_release
+    activation_condition: >
+      Activate when labour-market conditions are a dominant market theme
+      or the release produces an unusually large surprise.
+    components:
+      - initial_claims
+      - continuing_claims
+      - four_week_average
+
+  - event_key: us_durable_goods_orders
+    event_name: "US Durable Goods Orders and core capital-goods orders"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: conditional
+    event_family: us_business_investment
+    release_stage: advance
+    activation_condition: >
+      Activate when the surprise is large or business-investment
+      expectations are a dominant market theme.
+    components:
+      - headline_durable_goods_orders
+      - orders_ex_transportation
+      - core_capital_goods_orders
+      - core_capital_goods_shipments
+
+  - event_key: us_factory_orders
+    event_name: "US Factory Orders — full manufacturing report"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: conditional
+    event_family: us_manufacturing_orders
+    release_stage: full_report
+    activation_condition: >
+      Activate when the headline or ex-transportation result produces
+      a large surprise, manufacturing demand is a dominant market theme,
+      or revisions materially change the earlier durable-goods signal.
+    components:
+      - headline_factory_orders_mom
+      - factory_orders_ex_transportation_mom
+      - shipments_mom
+      - unfilled_orders_mom
+      - inventories_mom
+
+  - event_key: us_michigan_final
+    event_name: "University of Michigan Consumer Sentiment, final"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: conditional
+    event_family: us_consumer_sentiment
+    release_stage: final
+    activation_condition: >
+      Activate when the final revision to sentiment or inflation
+      expectations is material.
+    components:
+      - headline_sentiment
+      - one_year_inflation_expectations
+      - long_term_inflation_expectations
+
+  - event_key: us_major_fed_official_statement
+    event_name: "Major Federal Reserve official statement"
+    currency: USD
+    country_or_region: "United States"
+    event_type: official_statement
+    impact_level: high
+    activation: conditional
+    event_family: federal_reserve_communications
+    release_stage: unscheduled_or_special_statement
+    activation_condition: >
+      Activate when the statement materially changes policy,
+      financial-stability, or emergency-policy expectations.
+
+  - event_key: us_sp_global_services_pmi_final
+    event_name: "S&P Global US Services PMI, final"
+    currency: USD
+    country_or_region: "United States"
+    event_type: economic_release
+    impact_level: high
+    activation: conditional
+    event_family: us_business_surveys
+    release_stage: final
+    activation_condition: >
+      Activate when the final Services PMI revision is material,
+      materially changes the growth or inflation interpretation,
+      or produces a noticeable EUR/USD market reaction.
+    components:
+      - services_business_activity_index
+
+  # ==========================================================================
+  # CONDITIONAL HIGH IMPACT — EUR
+  # ==========================================================================
+
+  - event_key: eur_ecb_president_major_external_speech
+    event_name: >
+      ECB President major policy speech outside an ECB decision meeting
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: central_bank_speech
+    impact_level: high
+    activation: conditional
+    event_family: ecb_communications
+    release_stage: external_speech
+    activation_condition: >
+      Activate when the communication can materially change near-term
+      policy-rate, balance-sheet, or forward-guidance expectations.
+
+  - event_key: eur_major_ecb_official_statement
+    event_name: "Major ECB official statement"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: official_statement
+    impact_level: high
+    activation: conditional
+    event_family: ecb_communications
+    release_stage: unscheduled_or_special_statement
+    activation_condition: >
+      Activate when the statement materially changes policy,
+      financial-stability, or emergency-policy expectations.
+
+  - event_key: eur_euro_area_wages_labour_costs
+    event_name: "Euro-area wage and labour-cost indicators"
+    currency: EUR
+    country_or_region: "Euro area"
+    event_type: economic_release
+    impact_level: high
+    activation: conditional
+    event_family: euro_area_labour_costs
+    release_stage: scheduled_release
+    activation_condition: >
+      Activate when wage persistence is a dominant ECB-policy theme
+      or the release produces a large surprise.
+    components:
+      - negotiated_wages
+      - labour_cost_index

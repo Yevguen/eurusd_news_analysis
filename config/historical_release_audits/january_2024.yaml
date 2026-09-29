@@ -1,0 +1,248 @@
+schema_version: 1
+
+manifest:
+  manifest_id: january_2024_expected_releases
+  publication_month: "2024-01"
+  currency_pair: EURUSD
+  date_field: official_release_time
+  purpose: >
+    Definitive expected-publication manifest for the January 2024
+    historical-release completeness audit.
+
+  completeness_policy:
+    include_core_publications: true
+    include_conditional_publications: activated_only
+    one_record_per_publication: true
+    group_components_released_together: true
+    separate_records_for_different_release_times: true
+    german_state_cpi_recording: one_record_per_state_publication
+
+  expected_release_count: 36
+  expected_core_release_count: 34
+  expected_activated_conditional_release_count: 2
+
+expected_releases:
+  - release_id: us_ism_manufacturing_pmi_2024_01_03
+    event_key: us_ism_manufacturing_pmi
+    publication_date: "2024-01-03"
+    requirement: core
+
+  - release_id: us_jolts_job_openings_2024_01_03
+    event_key: us_jolts_job_openings
+    publication_date: "2024-01-03"
+    requirement: core
+
+  - release_id: us_fomc_minutes_2024_01_03
+    event_key: us_fomc_minutes
+    publication_date: "2024-01-03"
+    requirement: core
+
+  - release_id: eur_germany_state_cpi_north_rhine_westphalia_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: eur_germany_state_cpi_bavaria_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: eur_germany_state_cpi_baden_wurttemberg_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: eur_germany_state_cpi_hesse_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: eur_germany_state_cpi_saxony_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: eur_germany_state_cpi_brandenburg_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: eur_germany_preliminary_cpi_hicp_2024_01_04
+    event_key: eur_germany_preliminary_cpi_hicp
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: us_adp_employment_2024_01_04
+    event_key: us_adp_employment
+    publication_date: "2024-01-04"
+    requirement: core
+
+  - release_id: us_sp_global_services_pmi_final_2024_01_04
+    event_key: us_sp_global_services_pmi_final
+    publication_date: "2024-01-04"
+    requirement: activated_conditional
+    activation_reason: >
+      The project explicitly selected and stored this final PMI publication
+      as historically material for the January 2024 EUR/USD dataset.
+
+  - release_id: eur_euro_area_flash_hicp_2024_01_05
+    event_key: eur_euro_area_flash_hicp
+    publication_date: "2024-01-05"
+    requirement: core
+
+  - release_id: us_employment_situation_2024_01_05
+    event_key: us_employment_situation
+    publication_date: "2024-01-05"
+    requirement: core
+
+  - release_id: us_ism_services_pmi_2024_01_05
+    event_key: us_ism_services_pmi
+    publication_date: "2024-01-05"
+    requirement: core
+
+  - release_id: us_factory_orders_2024_01_05
+    event_key: us_factory_orders
+    publication_date: "2024-01-05"
+    requirement: activated_conditional
+    activation_reason: >
+      The project explicitly selected the full Factory Orders report for
+      historical recording and catalogue coverage.
+
+  - release_id: eur_euro_area_unemployment_2024_01_09
+    event_key: eur_euro_area_unemployment
+    publication_date: "2024-01-09"
+    requirement: core
+
+  - release_id: us_cpi_2024_01_11
+    event_key: us_cpi
+    publication_date: "2024-01-11"
+    requirement: core
+
+  - release_id: us_ppi_2024_01_12
+    event_key: us_ppi
+    publication_date: "2024-01-12"
+    requirement: core
+
+  - release_id: eur_zew_sentiment_2024_01_16
+    event_key: eur_zew_sentiment
+    publication_date: "2024-01-16"
+    requirement: core
+
+  - release_id: us_advance_retail_sales_2024_01_17
+    event_key: us_advance_retail_sales
+    publication_date: "2024-01-17"
+    requirement: core
+
+  - release_id: eur_ecb_meeting_accounts_2024_01_18
+    event_key: eur_ecb_meeting_accounts
+    publication_date: "2024-01-18"
+    requirement: core
+
+  - release_id: us_michigan_preliminary_2024_01_19
+    event_key: us_michigan_preliminary
+    publication_date: "2024-01-19"
+    requirement: core
+
+  - release_id: eur_germany_flash_pmi_2024_01_24
+    event_key: eur_germany_flash_pmi
+    publication_date: "2024-01-24"
+    requirement: core
+
+  - release_id: eur_eurozone_flash_pmi_2024_01_24
+    event_key: eur_eurozone_flash_pmi
+    publication_date: "2024-01-24"
+    requirement: core
+
+  - release_id: eur_germany_ifo_business_climate_2024_01_25
+    event_key: eur_germany_ifo_business_climate
+    publication_date: "2024-01-25"
+    requirement: core
+
+  - release_id: eur_ecb_decision_statement_2024_01_25
+    event_key: eur_ecb_decision_statement
+    publication_date: "2024-01-25"
+    requirement: core
+
+  - release_id: us_advance_gdp_2024_01_25
+    event_key: us_advance_gdp
+    publication_date: "2024-01-25"
+    requirement: core
+
+  - release_id: eur_ecb_president_press_conference_2024_01_25
+    event_key: eur_ecb_president_press_conference
+    publication_date: "2024-01-25"
+    requirement: core
+
+  - release_id: us_personal_income_outlays_2024_01_26
+    event_key: us_personal_income_outlays
+    publication_date: "2024-01-26"
+    requirement: core
+
+  - release_id: eur_germany_preliminary_gdp_2024_01_30
+    event_key: eur_germany_preliminary_gdp
+    publication_date: "2024-01-30"
+    requirement: core
+
+  - release_id: eur_euro_area_preliminary_gdp_2024_01_30
+    event_key: eur_euro_area_preliminary_gdp
+    publication_date: "2024-01-30"
+    requirement: core
+
+  - release_id: us_jolts_job_openings_2024_01_30
+    event_key: us_jolts_job_openings
+    publication_date: "2024-01-30"
+    requirement: core
+
+  - release_id: us_employment_cost_index_2024_01_31
+    event_key: us_employment_cost_index
+    publication_date: "2024-01-31"
+    requirement: core
+
+  - release_id: us_fomc_decision_statement_2024_01_31
+    event_key: us_fomc_decision_statement
+    publication_date: "2024-01-31"
+    requirement: core
+
+  - release_id: us_fed_chair_post_fomc_press_conference_2024_01_31
+    event_key: us_fed_chair_post_fomc_press_conference
+    publication_date: "2024-01-31"
+    requirement: core
+
+expected_release_groups:
+  - release_group_id: eur_germany_state_cpi_2024_01_04
+    event_key: eur_germany_state_cpi
+    publication_date: "2024-01-04"
+    expected_member_count: 6
+    expected_geography_keys:
+      - north_rhine_westphalia
+      - bavaria
+      - baden_wurttemberg
+      - hesse
+      - saxony
+      - brandenburg
+
+non_occurring_core_rules:
+  - event_key: us_fomc_projections_dot_plot
+    reason: >
+      The January 2024 FOMC meeting was not a Summary of Economic
+      Projections meeting.
+
+  - event_key: eur_ecb_staff_projections
+    reason: >
+      The January 2024 ECB monetary-policy meeting did not publish new
+      ECB or Eurosystem staff projections.
+
+  - event_key: eur_euro_area_employment_flash
+    reason: >
+      The fourth-quarter 2023 euro-area employment flash estimate was
+      published in February 2024, outside this manifest month.
+
+excluded_conditional_event_keys:
+  - us_fed_chair_major_external_speech
+  - us_initial_jobless_claims
+  - us_durable_goods_orders
+  - us_michigan_final
+  - us_major_fed_official_statement
+  - eur_ecb_president_major_external_speech
+  - eur_major_ecb_official_statement
+  - eur_euro_area_wages_labour_costs

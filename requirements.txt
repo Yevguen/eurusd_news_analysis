@@ -1,0 +1,9 @@
+pandas
+pydantic
+PyYAML
+python-dateutil
+pytest
+pyarrow
+numpy
+matplotlib
+tzdata

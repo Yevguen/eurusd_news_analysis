@@ -1,0 +1,35 @@
+schema_version: 1
+
+# Every data file in data/demo/ must be listed here. The publication-safety
+# guard (scripts/check_publication_safety.py) rejects unlisted data files,
+# undeclared provenance and non-redistributable origins.
+
+files:
+  - path: data/demo/synthetic_releases.jsonl
+    kind: historical_releases
+    data_origin: synthetic
+    source_keys: [project_synthetic]
+    description: >-
+      SYNTHETIC release catalogue dated January 2030 with placeholder values.
+      Exercises numeric, text, summary-only and German state-CPI group records.
+      Regenerate with scripts/generate_synthetic_demo_data.py.
+
+  - path: data/demo/official_releases_allowlist.jsonl
+    kind: historical_releases
+    data_origin: authentic
+    source_keys: [bls]
+    description: >-
+      Reviewed allowlist of AUTHENTIC records from sources classified as
+      reusable with attribution. Currently one record: the U.S. CPI release
+      for December 2023 published by the U.S. Bureau of Labor Statistics on
+      2024-01-11 at 08:30 US Eastern time.
+
+  - path: data/demo/SYNTHETIC_eurusd_h1_mt5_format.csv
+    kind: price_series
+    data_origin: synthetic
+    source_keys: [project_synthetic]
+    time_basis: mt5_server_time
+    description: >-
+      SYNTHETIC EUR/USD-like H1 candles (2024-01-02 to 2024-01-12, weekdays)
+      in MetaTrader 5 export layout. Starts at exactly 1.00000, contains no
+      injected event effect, and is NOT real market data.

@@ -1,0 +1,695 @@
+audit:
+  audit_id: january_2024_factual_source_audit
+  publication_month: "2024-01"
+  expected_release_count: 36
+  methodology_version: 1
+  manifest_path: >-
+    config/historical_release_audits/january_2024.yaml
+  storage_path: >-
+    data/historical_releases/raw/releases.jsonl
+
+  permitted_statuses:
+    - verified
+    - partially_verified
+    - unresolved
+    - incorrect
+
+  source_priority:
+    - official_release_page
+    - official_release_pdf
+    - official_release_calendar
+    - official_statistical_table
+    - official_archive
+    - contemporaneous_secondary_source
+
+  verification_scope:
+    - release_identity
+    - event_key
+    - reference_period
+    - official_source
+    - publication_timestamp
+    - component_keys
+    - actual_values
+    - previous_values
+    - units
+    - summary
+    - notes
+
+  public_repository_redaction:
+    applied_on: "2026-09-29"
+    policy: >-
+      Observation values and value-bearing text from sources classified as
+      restricted or unresolved in config/data_sources.yaml are withheld from
+      the public repository (marked "withheld"). Verification statuses,
+      timestamps, URLs, evidence locations and unresolved items are kept.
+      The unredacted audit is retained in the author's private archive.
+    affected_release_ids:
+      - us_ism_manufacturing_pmi_2024_01_03
+      - eur_germany_state_cpi_north_rhine_westphalia_2024_01_04
+      - eur_germany_state_cpi_bavaria_2024_01_04
+
+release_audits:
+  - release_id: us_ism_manufacturing_pmi_2024_01_03
+    event_key: us_ism_manufacturing_pmi
+    verification_status: verified
+    audited_on: "2026-08-06"
+
+    identity:
+      stored_release_id: us_ism_manufacturing_pmi_2024_01_03
+      verified_release_id: us_ism_manufacturing_pmi_2024_01_03
+      result: pass
+
+    official_source:
+      stored_institution: Institute for Supply Management
+      verified_institution: Institute for Supply Management
+      stored_url: >-
+        https://www.ismworld.org/supply-management-news-and-reports/news-publications/inside-supply-management-magazine/blog/2024/2024-01/rob-roundup-december-2023-manufacturing-pmi/
+      source_type: official_release_page
+      result: pass
+      comment: >-
+        The stored URL is an official ISM post-release roundup
+        containing the principal release figures and analysis.
+
+    supporting_sources:
+      - purpose: full_release_table_and_publication_timestamp
+        source_type: official_archive
+        institution: Institute for Supply Management
+        distributor: PR Newswire
+        url: >-
+          https://www.prnewswire.com/news-releases/manufacturing-pmi-at-47-4-december-2023-manufacturing-ism-report-on-business-302024715.html
+
+      - purpose: standard_manufacturing_pmi_release_time
+        source_type: official_release_calendar
+        institution: Institute for Supply Management
+        url: >-
+          https://www.ismworld.org/supply-management-news-and-reports/reports/rob-report-calendar/
+
+    reference_period:
+      stored: "2023-12"
+      verified: "2023-12"
+      result: pass
+
+    publication_time:
+      stored_official: "2024-01-03T10:00:00-05:00"
+      verified_official: "2024-01-03T10:00:00-05:00"
+      official_time_evidence: >-
+        ISM-distributed release timestamped 3 January 2024
+        at 10:00 ET.
+      stored_utc: "2024-01-03T15:00:00+00:00"
+      verified_utc: "2024-01-03T15:00:00+00:00"
+      utc_conversion_result: pass
+      stored_mt5: "2024-01-03T17:00:00+02:00"
+      verified_mt5_under_project_rule: >-
+        2024-01-03T17:00:00+02:00
+      mt5_conversion_result: pass
+      mt5_status: provisional
+      result: pass
+
+    components:
+      - component_key: headline_index
+        values_in_public_repository: withheld (restricted source)
+        stored_unit: index points
+        verified_unit: index points
+        verification_result: pass
+        evidence_location: Manufacturing at a Glance table
+
+      - component_key: new_orders
+        values_in_public_repository: withheld (restricted source)
+        stored_unit: index points
+        verified_unit: index points
+        verification_result: pass
+        evidence_location: Manufacturing at a Glance table
+
+      - component_key: production
+        values_in_public_repository: withheld (restricted source)
+        stored_unit: index points
+        verified_unit: index points
+        verification_result: pass
+        evidence_location: Manufacturing at a Glance table
+
+      - component_key: employment
+        values_in_public_repository: withheld (restricted source)
+        stored_unit: index points
+        verified_unit: index points
+        verification_result: pass
+        evidence_location: Manufacturing at a Glance table
+
+      - component_key: prices_paid
+        values_in_public_repository: withheld (restricted source)
+        stored_unit: index points
+        verified_unit: index points
+        verification_result: pass
+        evidence_location: Manufacturing at a Glance Prices row
+
+    forecast_review:
+      stored_forecasts_are_null: true
+      result: pass
+      comment: >-
+        The official ISM release does not provide a
+        market-consensus forecast.
+
+    summary_review:
+      result: pass
+      comment: >-
+        The stored summary correctly identifies the December
+        2023 US ISM Manufacturing Report On Business.
+
+    notes_review:
+      result: pass
+      comment: >-
+        The notes were checked against the official release. Their
+        descriptive content is withheld from the public repository
+        (restricted source).
+
+    unresolved_items: []
+
+  - release_id: us_jolts_job_openings_2024_01_03
+    event_key: us_jolts_job_openings
+    verification_status: verified
+    audited_on: "2026-08-06"
+
+    identity:
+      stored_release_id: us_jolts_job_openings_2024_01_03
+      verified_release_id: us_jolts_job_openings_2024_01_03
+      result: pass
+
+    official_source:
+      stored_institution: U.S. Bureau of Labor Statistics
+      verified_institution: U.S. Bureau of Labor Statistics
+      stored_url: >-
+        https://www.bls.gov/news.release/archives/jolts_01032024.htm
+      source_type: official_archive
+      result: pass
+      comment: >-
+        The stored URL is the official archived BLS JOLTS
+        release for November 2023.
+
+    reference_period:
+      stored: "2023-11"
+      verified: "2023-11"
+      result: pass
+
+    publication_time:
+      stored_official: "2024-01-03T10:00:00-05:00"
+      verified_official: "2024-01-03T10:00:00-05:00"
+      official_time_evidence: >-
+        The official BLS release header states 10:00 a.m.
+        ET on Wednesday, 3 January 2024.
+      stored_utc: "2024-01-03T15:00:00+00:00"
+      verified_utc: "2024-01-03T15:00:00+00:00"
+      utc_conversion_result: pass
+      stored_mt5: "2024-01-03T17:00:00+02:00"
+      verified_mt5_under_project_rule: >-
+        2024-01-03T17:00:00+02:00
+      mt5_conversion_result: pass
+      mt5_status: provisional
+      result: pass
+
+    components:
+      - component_key: job_openings
+        stored_actual: 8790.0
+        verified_actual: 8790.0
+        stored_previous: 8852.0
+        verified_previous: 8852.0
+        stored_unit: thousand positions
+        verified_unit: thousand positions
+        verification_result: pass
+        evidence_location: >-
+          Table A, Total row, job-openings columns
+
+      - component_key: hires
+        stored_actual: 5465.0
+        verified_actual: 5465.0
+        stored_previous: 5828.0
+        verified_previous: 5828.0
+        stored_unit: thousand hires
+        verified_unit: thousand hires
+        verification_result: pass
+        evidence_location: >-
+          Table A, Total row, hires columns
+
+      - component_key: quits
+        stored_actual: 3471.0
+        verified_actual: 3471.0
+        stored_previous: 3628.0
+        verified_previous: 3628.0
+        stored_unit: thousand quits
+        verified_unit: thousand quits
+        verification_result: pass
+        evidence_location: >-
+          Table 4, Total row, quits levels
+
+    release_vintage_review:
+      result: pass
+      comment: >-
+        Actual and previous figures match the values printed
+        in the 3 January release. Later revisions from the
+        30 January JOLTS publication are intentionally not
+        substituted into this earlier release vintage.
+
+    preliminary_status:
+      stored_as_release_vintage: true
+      verified_preliminary: true
+      result: pass
+      comment: >-
+        The official tables mark November 2023 values as
+        preliminary.
+
+    forecast_review:
+      stored_forecasts_are_null: true
+      result: pass
+      comment: >-
+        The official BLS publication does not provide
+        market-consensus forecasts.
+
+    summary_review:
+      result: pass
+      comment: >-
+        The stored summary correctly identifies the November
+        2023 Job Openings and Labor Turnover Survey release.
+
+    notes_review:
+      result: pass
+      comment: >-
+        The notes accurately preserve the release-vintage
+        values, units, preliminary status and possibility
+        of later revisions.
+
+    unresolved_items: []
+
+  - release_id: us_fomc_minutes_2024_01_03
+    event_key: us_fomc_minutes
+    verification_status: verified
+    audited_on: "2026-08-06"
+
+    identity:
+      stored_release_id: us_fomc_minutes_2024_01_03
+      verified_release_id: us_fomc_minutes_2024_01_03
+      result: pass
+
+    official_source:
+      stored_institution: >-
+        Board of Governors of the Federal Reserve System
+      verified_institution: >-
+        Board of Governors of the Federal Reserve System
+      stored_url: >-
+        https://www.federalreserve.gov/monetarypolicy/fomcminutes20231213.htm
+      source_type: official_release_page
+      result: pass
+      comment: >-
+        The stored URL is the Federal Reserve's direct HTML
+        publication of the December 12–13, 2023 FOMC minutes.
+
+    supporting_sources:
+      - purpose: publication_date_and_time
+        source_type: official_release_page
+        institution: >-
+          Board of Governors of the Federal Reserve System
+        url: >-
+          https://www.federalreserve.gov/newsevents/pressreleases/monetary20240103a.htm
+        evidence_location: >-
+          Press-release header stating release at
+          2:00 p.m. EST on 3 January 2024.
+
+    reference_period:
+      stored: "2023-12-12_to_2023-12-13"
+      verified: "2023-12-12_to_2023-12-13"
+      result: pass
+
+    publication_time:
+      stored_official: "2024-01-03T14:00:00-05:00"
+      verified_official: "2024-01-03T14:00:00-05:00"
+      official_time_evidence: >-
+        The Federal Reserve press-release header states
+        that the minutes were released at 2:00 p.m. EST.
+      stored_utc: "2024-01-03T19:00:00+00:00"
+      verified_utc: "2024-01-03T19:00:00+00:00"
+      utc_conversion_result: pass
+      stored_mt5: "2024-01-03T21:00:00+02:00"
+      verified_mt5_under_project_rule: >-
+        2024-01-03T21:00:00+02:00
+      mt5_conversion_result: pass
+      mt5_status: provisional
+      result: pass
+
+    components:
+      - component_key: policy_discussion
+        value_type: text
+        stored_forecast: null
+        stored_previous: null
+        stored_unit: null
+        verification_result: pass
+        evidence_location: >-
+          Committee Policy Actions and discussion of the
+          monetary-policy outlook.
+        comment: >-
+          The stored text accurately paraphrases the unchanged
+          5.25–5.50 percent target range, the assessment that
+          rates were likely at or near their peak, and the
+          continuing data-dependent approach.
+
+      - component_key: risk_assessment
+        value_type: text
+        stored_forecast: null
+        stored_previous: null
+        stored_unit: null
+        verification_result: pass
+        evidence_location: >-
+          Participants' Views on Current Conditions and the
+          Economic Outlook, including risk-management discussion.
+        comment: >-
+          The stored text accurately reflects risks moving toward
+          greater balance, inflation remaining above target, the
+          possibility that disinflation could stall, and downside
+          risks from an overly restrictive stance.
+
+      - component_key: participant_views
+        value_type: text
+        stored_forecast: null
+        stored_previous: null
+        stored_unit: null
+        verification_result: pass
+        evidence_location: >-
+          Monetary-policy outlook discussion concerning the
+          projected federal-funds-rate path.
+        comment: >-
+          The stored text accurately reflects that almost all
+          participants projected a lower target range by the end
+          of 2024, while several saw a possibility of maintaining
+          rates longer and further increases remained possible.
+
+    qualitative_paraphrase_review:
+      result: pass
+      comment: >-
+        All three component values are concise analytical
+        paraphrases. They do not present themselves as verbatim
+        quotations and remain faithful to the official minutes.
+
+    forecast_review:
+      stored_forecasts_are_null: true
+      result: pass
+      comment: >-
+        Market-consensus forecasts are not applicable to these
+        qualitative minutes components.
+
+    previous_value_review:
+      stored_previous_values_are_null: true
+      result: pass
+      comment: >-
+        Previous values are not applicable to the qualitative
+        minutes components.
+
+    summary_review:
+      result: pass
+      comment: >-
+        The stored summary correctly identifies the meeting dates
+        and the 3 January 2024 publication date.
+
+    notes_review:
+      result: pass
+      comment: >-
+        The notes correctly describe the publication time,
+        meeting period, qualitative nature of the components and
+        provisional MT5 offset.
+
+    unresolved_items: []
+
+  - release_id: >-
+      eur_germany_state_cpi_north_rhine_westphalia_2024_01_04
+    event_key: eur_germany_state_cpi
+    verification_status: verified
+    audited_on: "2026-08-06"
+
+    identity:
+      stored_release_id: >-
+        eur_germany_state_cpi_north_rhine_westphalia_2024_01_04
+      verified_release_id: >-
+        eur_germany_state_cpi_north_rhine_westphalia_2024_01_04
+      result: pass
+
+    release_group:
+      stored_release_group_id: >-
+        eur_germany_state_cpi_2024_01_04
+      verified_release_group_id: >-
+        eur_germany_state_cpi_2024_01_04
+      result: pass
+
+    geography:
+      stored_geography_key: north_rhine_westphalia
+      verified_geography_key: north_rhine_westphalia
+      stored_geography_name: North Rhine-Westphalia
+      verified_geography_name: North Rhine-Westphalia
+      result: pass
+
+    official_source:
+      stored_institution: >-
+        Information und Technik Nordrhein-Westfalen (IT.NRW)
+      verified_institution: >-
+        Information und Technik Nordrhein-Westfalen (IT.NRW)
+      stored_url: >-
+        https://www.it.nrw/nrw-inflationsrate-im-dezember-2023
+      source_type: official_release_page
+      result: pass
+      comment: >-
+        The stored URL is the official IT.NRW preliminary
+        consumer-price release for December 2023.
+
+    reference_period:
+      stored: "2023-12"
+      verified: "2023-12"
+      result: pass
+
+    publication_time:
+      stored_official: "2024-01-04T07:30:00+01:00"
+      verified_official: "2024-01-04T07:30:00+01:00"
+      official_time_evidence: >-
+        The official IT.NRW release states that the December
+        2023 results were the final NRW CPI results published
+        at 07:30 before publication moved to 10:00.
+      stored_utc: "2024-01-04T06:30:00+00:00"
+      verified_utc: "2024-01-04T06:30:00+00:00"
+      utc_conversion_result: pass
+      stored_mt5: "2024-01-04T08:30:00+02:00"
+      verified_mt5_under_project_rule: >-
+        2024-01-04T08:30:00+02:00
+      mt5_conversion_result: pass
+      mt5_status: provisional
+      result: pass
+
+    components:
+      - component_key: state_headline_cpi_mom
+        values_in_public_repository: withheld (unresolved source)
+        stored_unit: percent month-over-month
+        verified_unit: percent month-over-month
+        verification_result: pass
+        evidence_location: >-
+          Consumer Price Index for North Rhine-Westphalia,
+          December 2023 row, monthly-change column
+
+      - component_key: state_headline_cpi_yoy
+        values_in_public_repository: withheld (unresolved source)
+        stored_unit: percent year-over-year
+        verified_unit: percent year-over-year
+        verification_result: pass
+        evidence_location: >-
+          Consumer Price Index for North Rhine-Westphalia,
+          December 2023 row, annual-change column
+
+    preliminary_status:
+      stored_as_preliminary: true
+      verified_preliminary: true
+      result: pass
+      comment: >-
+        The official release and table explicitly mark the
+        December 2023 figures as preliminary.
+
+    forecast_review:
+      stored_forecasts_are_null: true
+      result: pass
+      comment: >-
+        The official state statistical-office release does not
+        provide market-consensus forecasts.
+
+    summary_review:
+      result: pass
+      comment: >-
+        The summary correctly identifies the preliminary
+        North Rhine-Westphalia CPI release for December 2023.
+
+    notes_review:
+      result: pass
+      comment: >-
+        The notes correctly preserve the publication time,
+        current and previous values, release-group membership,
+        lack of consensus forecasts and provisional MT5 offset.
+
+    editorial_review:
+      result: correction_required
+      issue: >-
+        A stored note contains a missing space between two words.
+      corrected_text: withheld (unresolved source)
+      affects_factual_status: false
+
+    unresolved_items: []
+
+  - release_id: eur_germany_state_cpi_bavaria_2024_01_04
+    event_key: eur_germany_state_cpi
+    verification_status: partially_verified
+    audited_on: "2026-08-06"
+
+    identity:
+      stored_release_id: >-
+        eur_germany_state_cpi_bavaria_2024_01_04
+      verified_release_id: >-
+        eur_germany_state_cpi_bavaria_2024_01_04
+      result: pass
+
+    release_group:
+      stored_release_group_id: >-
+        eur_germany_state_cpi_2024_01_04
+      verified_release_group_id: >-
+        eur_germany_state_cpi_2024_01_04
+      result: pass
+
+    geography:
+      stored_geography_key: bavaria
+      verified_geography_key: bavaria
+      stored_geography_name: Bavaria
+      verified_geography_name: Bavaria
+      result: pass
+
+    official_source:
+      stored_institution: Bavarian State Office for Statistics
+      verified_institution: >-
+        Bayerisches Landesamt für Statistik
+      institution_name_result: pass
+      institution_name_comment: >-
+        The stored English name is an acceptable translation
+        of the institution's official German name.
+      stored_url: >-
+        https://www.statistik.bayern.de/presse/mitteilungen/2024/pm002/index.html
+      source_type: official_release_page
+      result: pass
+      comment: >-
+        The stored URL is the official Bavarian preliminary
+        consumer-price release for December 2023.
+
+    supporting_sources:
+      - purpose: previous_month_values
+        source_type: official_release_page
+        institution: >-
+          Bayerisches Landesamt für Statistik
+        url: >-
+          https://www.statistik.bayern.de/presse/mitteilungen/2023/pm324/index.html
+        evidence_location: >-
+          November 2023 release confirming the stored
+          previous-month values (withheld: unresolved source).
+
+      - purpose: contemporaneous_publication_corroboration
+        source_type: contemporaneous_secondary_source
+        publisher: Reuters
+        url: >-
+          https://www.investing.com/news/economic-indicators/inflation-up-in-german-states-pointing-to-national-rise-3266897
+        evidence_location: >-
+          Contemporaneous 4 January 2024 reporting of the
+          Bavarian December CPI figures.
+        limitation: >-
+          The report confirms morning availability of the
+          figures but does not explicitly prove an exact
+          10:00 CET official publication time.
+
+    reference_period:
+      stored: "2023-12"
+      verified: "2023-12"
+      result: pass
+
+    publication_time:
+      stored_official: "2024-01-04T10:00:00+01:00"
+      verified_publication_date: "2024-01-04"
+      publication_date_result: pass
+
+      verified_official_clock_time: null
+      exact_clock_time_result: unresolved
+      time_evidence_status: secondary_corroboration_only
+      comment: >-
+        The official Bavarian release confirms the publication
+        date but does not display an exact clock time. Available
+        contemporaneous reporting does not independently prove
+        precisely 10:00 CET.
+
+      stored_utc: "2024-01-04T09:00:00+00:00"
+      expected_utc_if_stored_time_is_correct: >-
+        2024-01-04T09:00:00+00:00
+      utc_conversion_result: conditional_pass
+
+      stored_mt5: "2024-01-04T11:00:00+02:00"
+      expected_mt5_if_stored_time_is_correct: >-
+        2024-01-04T11:00:00+02:00
+      mt5_conversion_result: conditional_pass
+      mt5_status: provisional
+
+      result: partially_verified
+
+    components:
+      - component_key: state_headline_cpi_mom
+        values_in_public_repository: withheld (unresolved source)
+        stored_unit: percent month-over-month
+        verified_unit: percent month-over-month
+        verification_result: pass
+        actual_evidence_location: >-
+          Official December release, comparison with the
+          previous month.
+        previous_evidence_location: >-
+          Official November 2023 release.
+
+      - component_key: state_headline_cpi_yoy
+        values_in_public_repository: withheld (unresolved source)
+        stored_unit: percent year-over-year
+        verified_unit: percent year-over-year
+        verification_result: pass
+        actual_evidence_location: >-
+          Official December release, inflation-rate section.
+        previous_evidence_location: >-
+          Official November 2023 release.
+
+    preliminary_status:
+      stored_as_preliminary: true
+      verified_preliminary: true
+      result: pass
+      comment: >-
+        The official December release explicitly identifies
+        the results as preliminary.
+
+    forecast_review:
+      stored_forecasts_are_null: true
+      result: pass
+      comment: >-
+        The official state statistical-office publication
+        does not provide market-consensus forecasts.
+
+    summary_review:
+      result: pass
+      comment: >-
+        The stored summary correctly identifies the preliminary
+        Bavaria CPI release for December 2023.
+
+    notes_review:
+      result: pass
+      comment: >-
+        The notes correctly preserve the current and previous
+        CPI values, preliminary status, release-group membership,
+        absence of official consensus forecasts and provisional
+        MT5 offset. They also correctly disclose that the exact
+        time is based on secondary corroboration.
+
+    unresolved_items:
+      - field: official_release_time
+        stored_value: "2024-01-04T10:00:00+01:00"
+        issue: >-
+          The exact 10:00 CET clock time has not yet been
+          demonstrated by an official timestamp or sufficiently
+          precise archived calendar evidence.
+        required_evidence: >-
+          An official archived publication schedule, page
+          metadata, press-distribution record or historical
+          calendar explicitly showing 10:00 CET.

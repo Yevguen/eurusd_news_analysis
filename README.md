@@ -131,19 +131,29 @@ LICENSE                MIT (code only)
 
 ## Quick start
 
-Python 3.11 or newer is required (developed and tested with Python 3.12).
-Windows PowerShell:
+Python 3.11 or newer is required. The project was developed and tested with Python 3.12.
+
+### Windows PowerShell
 
 ```powershell
-git clone <repository-url>
+git clone https://github.com/Yevguen/eurusd_news_analysis.git
 cd eurusd_news_analysis
+
 py -3.12 -m venv .venv
 .\.venv\Scripts\Activate.ps1
+
 python -m pip install -r requirements.txt
 python -m pytest
 ```
 
-macOS / Linux: `python3 -m venv .venv` and `source .venv/bin/activate`.
+### macOS / Linux
+
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python -m pytest
+```
 
 ## Demo
 
